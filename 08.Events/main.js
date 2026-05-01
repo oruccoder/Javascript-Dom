@@ -41,16 +41,3 @@ function changeTitle(e) {
 // ! e.target ----------> Event-in hansı elementində baş verdiyini gösətir
 
 
-
-const button = document.querySelector("#btn")
-const container = document.querySelector("#container")
-
-button.addEventListener("click", function(){
-    const oldText = document.querySelector("#text");
-    const newText = createElement("p")
-    newText.textContent = "Complated" 
-
-    container.replaceChild(newText, oldText);
-})
-
-console.log(button);
