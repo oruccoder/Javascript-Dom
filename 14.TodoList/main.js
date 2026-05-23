@@ -3,6 +3,7 @@ const addInput = document.querySelector("#todoName");
 const cardBody = document.querySelector(".card-body");
 const todoList = document.querySelector("#list-group");
 const todoClearButton = document.querySelector("#todoClearButton");
+const filterInput = document.querySelector("#todoSearch");
 
 runEvents();
 
@@ -11,8 +12,28 @@ function runEvents() {
 
     document.addEventListener("DOMContentLoaded", pageLoaded);
     cardBody.addEventListener("click", removeTodoToUI);
-    todoClearButton.addEventListener("click", allTodosDelete)
+    todoClearButton.addEventListener("click", allTodosDelete);
+    // filter
+    filterInput.addEventListener("keyup", filter)
+}
 
+function filter(e){
+    const filterValue = e.target.value.toLowerCase().trim();
+    const todoLists = document.querySelectorAll(".lists");
+
+    if(todoLists.length > 0){
+        todoLists.forEach(function(todo){
+            if(todo.textContent.toLowerCase().trim().includes(filterValue)){
+                todo.setAttribute("style", "display: block");
+            }
+            else{
+                todo.setAttribute("style",  "display: none");
+            }
+        })
+    }
+    else{
+        alert("Heç bir məlumat tapılmadı!")
+    }
 }
 
 function removeTodoToUI(e){
