@@ -15,7 +15,6 @@
 
 // console.log(value);
 
-
 // Dəyər Silmək
 
 // localStorage.removeItem("1")
