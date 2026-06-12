@@ -22,5 +22,4 @@ todo.addEventListener("select", run)
 
 function run(e){
     console.log(e.type);
-    
 }

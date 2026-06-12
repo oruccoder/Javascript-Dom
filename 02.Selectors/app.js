@@ -63,7 +63,7 @@ const button = document.getElementById("todoAddButton")
 //     console.log(form);
 // })
 
-// console.log(forms);
+// console.log(Array.isArray(forms));
 
 // const todoList = document.getElementsByTagName("li")
 
