@@ -3,8 +3,8 @@ class Customer extends BonusBase{
         super(ad, soyad, kartVarmi, mehsullar)
     }
 
+    
     hesabla(){
       return  super.hesabla();
     }
-    
 }
