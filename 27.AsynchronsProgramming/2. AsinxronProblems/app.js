@@ -29,14 +29,18 @@ const users = [
 // post by user id
 
 
-function getUserId(){
+function getUserId(callback){
     setTimeout(() => {
         // Servisə getdik və cavabı aldıq
-        return 5;
+        // return 5;
+
+        let userId = 5;
+        callback(userId)
     }, 1000);
 }
 
 function getPostById(userId){
+    console.log(userId)
     // Gərçək bir rest api-a istək atacaqsınız
     setTimeout(() => {
         users.forEach((user) => {
@@ -47,5 +51,7 @@ function getPostById(userId){
     }, 500);
 }
 
-let userId = getUserId();
-getPostById(userId);
+getUserId(getPostById)
+
+// let userId = getUserId();
+// getPostById(userId);
