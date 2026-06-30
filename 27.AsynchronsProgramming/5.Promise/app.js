@@ -56,24 +56,58 @@
 
 
 
-function readStudent(url){
-    return new Promise((resolve,reject) => {
+// function readStudent(url){
+//     return new Promise((resolve,reject) => {
+//         const xhr = new XMLHttpRequest;
+//         try {
+//             xhr.addEventListener("readystatechange", () => {
+//                 if(xhr.readyState === 4 && xhr.status === 200){
+//                     resolve(JSON.parse(xhr.responseText));
+//                 }
+//             })
+//         } catch (error) {
+//             reject(error)
+//         }
+
+//         xhr.open("GET", url);
+//         xhr.send();
+//     })
+// }
+
+// readStudent("students.json")
+// .then((data) => console.log(data))
+// .catch((err) => console.log(err))
+
+
+function getUsers(url){
+    return new Promise((resolve, reject) => {
         const xhr = new XMLHttpRequest;
-        try {
-            xhr.addEventListener("readystatechange", () => {
+        xhr.addEventListener("readystatechange", () => {
+            try{
                 if(xhr.readyState === 4 && xhr.status === 200){
-                    resolve(JSON.parse(xhr.responseText));
+                    resolve(JSON.parse(xhr.responseText))
                 }
-            })
-        } catch (error) {
-            reject(error)
-        }
+            } catch(error){
+                reject(error)
+            }
+        })
 
         xhr.open("GET", url);
-        xhr.send();
+        xhr.send()
     })
 }
 
-readStudent("students.json")
-.then((data) => console.log(data))
+getUsers("https://jsonplaceholder.typicode.com/users")
+.then((data) => {
+    data.forEach((user) => {
+        console.log(user.name);
+    })
+    console.log("Daha sonra fərqli Asenxron kodlarını işə sala bilərik!");
+    
+    
+    
+})
 .catch((err) => console.log(err))
+.finally(() => {
+    // Mail atma kodlarını yazın
+})
